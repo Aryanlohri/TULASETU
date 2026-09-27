@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TulaSetu Field Inspector</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/styles.css">
+    <meta name="theme-color" content="#020617">
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-content">
+            <h1>TulaSetu Inspector</h1>
+            <div class="status-indicators">
+                <span id="sync-badge" class="badge hidden">0</span>
+                <span id="network-status" class="status-dot online"></span>
+                <button id="logout-btn" class="hidden">Logout</button>
+            </div>
+        </div>
+    </header>
+
+    <main id="app-container">
+        <!-- Login Section -->
+        <section id="login-section" class="page active">
+            <div class="card">
+                <h2>Login</h2>
+                <form id="login-form">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Inspections List Section -->
+        <section id="inspections-section" class="page hidden">
+            <div class="header-actions">
+                <h2>Assigned Inspections</h2>
+                <a href="#new-inspection" class="btn btn-primary">+ New</a>
+            </div>
+            <div id="inspections-list" class="list-container">
+                <!-- Items injected here via JS -->
+            </div>
+        </section>
+
+        <!-- New Inspection Form Section -->
+        <section id="inspection-form-section" class="page hidden">
+            <div class="header-actions">
+                <a href="#inspections" class="btn btn-outline">&larr; Back</a>
+                <h2>New Inspection</h2>
+            </div>
+            <form id="inspection-form" class="card">
+                <div class="form-group">
+                    <label for="entity-name">Entity Name</label>
+                    <input type="text" id="entity-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>GPS Location</label>
+                    <div class="location-capture">
+                        <button type="button" id="btn-get-location" class="btn btn-secondary">Get Coordinates</button>
+                        <span id="location-display" class="small-text">Not captured</span>
+                        <input type="hidden" id="lat"><input type="hidden" id="lng">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Photo Evidence</label>
+                    <div class="camera-capture">
+                        <button type="button" id="btn-open-camera" class="btn btn-secondary">Open Camera</button>
+                        <img id="photo-preview" class="hidden">
+                        <input type="hidden" id="photo-data">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" rows="4"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-full">Save Inspection</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Camera Viewfinder Overlay -->
+    <div id="camera-overlay" class="fullscreen-overlay hidden">
+        <video id="camera-view" autoplay playsinline></video>
+        <div class="camera-controls">
+            <button id="btn-close-camera" class="btn btn-outline">Cancel</button>
+            <button id="btn-take-photo" class="btn-capture"></button>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <script src="js/db.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/location.js"></script>
+    <script src="js/camera.js"></script>
+    <script src="js/sync.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
