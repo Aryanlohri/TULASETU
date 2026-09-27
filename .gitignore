@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+db.sqlite3
+*.pyc
+
+# Django
+media/
+staticfiles/
+*.log
+
+# Node
+node_modules/
+.next/
+out/
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Docker
+*.log
+
+# Fabric
+blockchain/network/crypto-config/
+blockchain/network/channel-artifacts/
+blockchain/sidecar/wallet/
+
+# Misc
+setup_frontend.py
