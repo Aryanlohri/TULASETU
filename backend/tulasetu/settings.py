@@ -120,5 +120,5 @@ CACHES = {
     }
 }
 
-BLOCKCHAIN_ENABLED = os.getenv('BLOCKCHAIN_ENABLED', 'True') == 'True'
+BLOCKCHAIN_ENABLED = str(os.getenv('BLOCKCHAIN_ENABLED', 'True')).lower() == 'true'
 BLOCKCHAIN_SIDECAR_URL = os.getenv('BLOCKCHAIN_SIDECAR_URL', 'http://localhost:3001')
