@@ -12,11 +12,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.variable} ${outfit.variable} font-sans bg-slate-950 text-white min-h-screen antialiased selection:bg-indigo-500/30`}>
+    <html lang="en">
+      <body className={`${inter.variable} ${outfit.variable} font-sans bg-govbg text-slate-900 min-h-screen antialiased selection:bg-saffron-500/30`}>
         {children}
         <Toaster position="top-right" toastOptions={{
-          style: { background: '#1e293b', color: '#fff', border: '1px solid rgba(255,255,255,0.1)' }
+          style: { background: '#fff', color: '#1e293b', border: '1px solid #e2e8f0' }
         }} />
       </body>
     </html>

@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 @layer utilities {
-  .glass {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  .gov-glass {
+    @apply bg-white border border-gray-200 shadow-sm rounded-md;
   }
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-indigo-400 to-violet-400;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-700 to-primary-900;
   }
 }
 
@@ -19,12 +19,12 @@ html {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #020617; 
+  background: #f1f5f9; 
 }
 ::-webkit-scrollbar-thumb {
-  background: #334155; 
+  background: #cbd5e1; 
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #475569; 
+  background: #94a3b8; 
 }
