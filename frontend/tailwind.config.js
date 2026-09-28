@@ -48,6 +48,16 @@ module.exports = {
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
       }
+      },
+      boxShadow: {
+        'premium': '0 10px 40px -10px rgba(0,0,128,0.08), 0 4px 6px -4px rgba(0,0,128,0.05)',
+        'premium-hover': '0 20px 40px -10px rgba(0,0,128,0.12), 0 8px 16px -8px rgba(0,0,128,0.08)',
+        'glow': '0 0 20px rgba(255,153,51,0.3)',
+      },
+      backgroundImage: {
+        'mesh': 'radial-gradient(at 40% 20%, hsla(28,100%,74%,1) 0px, transparent 50%), radial-gradient(at 80% 0%, hsla(189,100%,56%,1) 0px, transparent 50%), radial-gradient(at 0% 50%, hsla(355,100%,93%,1) 0px, transparent 50%)',
+        'subtle-grid': 'linear-gradient(to right, #e2e8f0 1px, transparent 1px), linear-gradient(to bottom, #e2e8f0 1px, transparent 1px)',
+      }
     },
   },
   plugins: [],
