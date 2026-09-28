@@ -9,11 +9,11 @@ module.exports = {
         primary: {
           50: '#eef2ff',
           100: '#e0e7ff',
-          500: '#1e3a8a', // blue-900 (Navy base)
-          600: '#1e40af', // blue-800
-          700: '#1d4ed8', // blue-700
+          500: '#1e3a8a',
+          600: '#1e40af',
+          700: '#1d4ed8',
           800: '#1e3a8a',
-          900: '#000080', // Navy Blue
+          900: '#000080',
         },
         saffron: {
           500: '#FF9933',
@@ -23,10 +23,10 @@ module.exports = {
           500: '#138808',
           600: '#117a07',
         },
-        govbg: '#F4F6F8', // Light gray standard govt background
-        success: '#15803d', // green-700 for better contrast on light mode
-        error: '#b91c1c', // red-700
-        warning: '#b45309', // amber-700
+        govbg: '#F4F6F8',
+        success: '#15803d',
+        error: '#b91c1c',
+        warning: '#b45309',
         card: '#ffffff',
       },
       fontFamily: {
@@ -47,7 +47,6 @@ module.exports = {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-      }
       },
       boxShadow: {
         'premium': '0 10px 40px -10px rgba(0,0,128,0.08), 0 4px 6px -4px rgba(0,0,128,0.05)',
