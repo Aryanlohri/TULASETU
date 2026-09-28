@@ -18,25 +18,33 @@ export default function Sidebar({ role }) {
   ];
 
   return (
-    <aside className="w-64 fixed inset-y-0 left-0 glass border-l-0 border-t-0 border-b-0 flex flex-col z-20">
-      <div className="p-6">
-        <h1 className="text-2xl font-heading font-bold text-gradient">TulaSetu</h1>
-        <p className="text-xs text-slate-500 mt-1 uppercase tracking-wider">{role} PORTAL</p>
+    <aside className="w-64 fixed inset-y-0 left-0 bg-white border-r border-gray-200 flex flex-col z-20 shadow-sm">
+      <div className="p-6 border-b border-gray-100">
+        <h1 className="text-2xl font-heading font-black text-primary-900 tracking-tight">TulaSetu</h1>
+        <p className="text-[10px] text-gray-500 mt-1 uppercase font-bold tracking-widest">{role} PORTAL</p>
       </div>
-      <nav className="flex-1 px-4 space-y-2 mt-4">
+      <nav className="flex-1 px-4 space-y-1 mt-6">
         {links.map((link) => {
           const active = pathname === link.href;
           const Icon = link.icon;
           return (
             <Link key={link.href} href={link.href} className={clsx(
-              "flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200",
-              active ? "bg-indigo-500/10 text-indigo-400 shadow-[inset_2px_0_0_#6366f1]" : "text-slate-400 hover:text-slate-200 hover:bg-white/5"
+              "flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-semibold transition-all duration-200",
+              active 
+                ? "bg-saffron-50 text-saffron-600 border-l-4 border-saffron-500 shadow-sm" 
+                : "text-gray-600 hover:text-primary-900 hover:bg-gray-50 border-l-4 border-transparent"
             )}>
               <Icon className="w-5 h-5" /> {link.label}
             </Link>
           );
         })}
       </nav>
+      
+      <div className="p-4 border-t border-gray-200">
+        <div className="text-xs text-center text-gray-500 font-medium">
+          Digital India Initiative
+        </div>
+      </div>
     </aside>
   );
 }
