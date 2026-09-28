@@ -1,0 +1,65 @@
+'use client';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { Home, FileText, CheckSquare, ShieldCheck, Box } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+export default function Sidebar({ role }: { role: string }) {
+  const pathname = usePathname();
+  
+  const links = role === 'TRADER' ? [
+    { href: '/trader', label: 'Dashboard', icon: Home },
+    { href: '/trader/instruments', label: 'Instruments', icon: Box },
+    { href: '/trader/applications', label: 'Applications', icon: FileText },
+    { href: '/trader/certificates', label: 'Certificates', icon: ShieldCheck },
+  ] : [
+    { href: '/officer', label: 'Dashboard', icon: Home },
+    { href: '/officer/inspections', label: 'Inspections', icon: CheckSquare },
+    { href: '/officer/certificates', label: 'Issue Certs', icon: ShieldCheck },
+  ];
+
+  return (
+    <aside className="w-64 fixed inset-y-0 left-0 bg-white border-r hairline-border flex flex-col z-20 top-[38px] shadow-soft">
+      <div className="p-6 border-b hairline-border flex flex-col items-center mt-4">
+        <div className="w-14 h-14 bg-ink-navy rounded-lg flex items-center justify-center text-white mb-3">
+          <ShieldCheck className="w-7 h-7" />
+        </div>
+        <h1 className="text-2xl font-serif font-bold text-ink-navy tracking-tight">TulaSetu</h1>
+        <p className="text-[10px] text-slate-500 mt-1 uppercase font-bold tracking-[0.2em] bg-slate-50 border hairline-border px-2 py-0.5 rounded-sm">{role} PORTAL</p>
+      </div>
+      
+      <nav className="flex-1 px-3 py-6 space-y-1 relative">
+        {links.map((link) => {
+          const active = pathname === link.href;
+          const Icon = link.icon;
+          return (
+            <Link key={link.href} href={link.href} className="relative block group">
+              {active && (
+                <motion.div 
+                  layoutId="active-nav"
+                  className="absolute inset-0 bg-slate-100 rounded-md z-0"
+                  initial={false}
+                  transition={{ type: "spring", stiffness: 400, damping: 40 }}
+                />
+              )}
+              <div className={`relative z-10 flex items-center gap-3 px-4 py-2.5 rounded-md text-sm font-semibold transition-colors duration-200 ${active ? 'text-ink-navy' : 'text-slate-600 hover:text-ink-navy hover:bg-slate-50'}`}>
+                <Icon className={`w-4 h-4 ${active ? 'text-saffron' : 'opacity-70 group-hover:opacity-100'}`} strokeWidth={active ? 2.5 : 2} /> 
+                {link.label}
+              </div>
+            </Link>
+          );
+        })}
+      </nav>
+      
+      <div className="p-4 border-t hairline-border bg-slate-50">
+        <div className="text-[10px] text-slate-500 font-semibold uppercase tracking-widest flex flex-col gap-1 items-center justify-center text-center">
+          <div className="flex items-center gap-1.5">
+            <div className="w-1.5 h-1.5 rounded-full bg-indiaGreen" />
+            System Online
+          </div>
+          <span className="opacity-70">GIGW 3.0 Compliant</span>
+        </div>
+      </div>
+    </aside>
+  );
+}
