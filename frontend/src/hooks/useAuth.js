@@ -38,7 +38,13 @@ export function useAuth(requireAuth = false) {
       router.push(`/${role.toLowerCase()}`);
       return true;
     } catch (error) {
-      toast.error(error.response?.data?.message || 'Login failed');
+      if (error.response?.data && typeof error.response.data === 'object' && !error.response.data.message && !error.response.data.error) {
+        const firstErrorKey = Object.keys(error.response.data)[0];
+        const firstErrorMessage = error.response.data[firstErrorKey][0];
+        toast.error(`${firstErrorKey}: ${firstErrorMessage}`);
+      } else {
+        toast.error(error.response?.data?.message || error.response?.data?.error || 'Login failed');
+      }
       return false;
     }
   };
