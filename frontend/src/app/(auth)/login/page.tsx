@@ -128,32 +128,6 @@ export default function LoginPage() {
               ) : (
                 <>Secure Login <ArrowRight className="w-4 h-4" /></>
               )}
-            </button>
-          </form>
-
-          {/* DEMO BYPASS FOR REVIEW */}
-          <div className="mt-6 pt-6 border-t hairline-border">
-            <p className="text-xs font-bold text-slate-400 uppercase tracking-wider text-center mb-3">UI Demo Quick Links</p>
-            <div className="flex gap-2 justify-center">
-               <button onClick={() => {
-                 // Mocking login for UI review
-                 window.location.href = '/trader';
-               }} className="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded transition-colors font-semibold">
-                 Demo Trader
-               </button>
-               <button onClick={() => {
-                 window.location.href = '/officer';
-               }} className="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded transition-colors font-semibold">
-                 Demo Officer
-               </button>
-               <button onClick={() => {
-                 window.location.href = '/admin';
-               }} className="text-xs bg-slate-100 hover:bg-slate-200 text-slate-700 px-3 py-1.5 rounded transition-colors font-semibold">
-                 Demo Admin
-               </button>
-            </div>
-          </div>
-
           {!isOfficerLogin && (
             <p className="mt-8 text-center text-sm text-slate-500">
               Not registered on the portal?{' '}

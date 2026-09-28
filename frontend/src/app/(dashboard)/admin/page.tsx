@@ -82,18 +82,33 @@ export default function AdminDashboard() {
               <option>Gujarat</option>
             </select>
           </div>
-          <div className="flex-1 bg-slate-100 relative min-h-[400px]">
-             {/* Mock map visualization */}
-             <div className="absolute inset-0 flex items-center justify-center">
-               <div className="text-center text-slate-400">
-                 <MapIcon className="w-16 h-16 mx-auto mb-2 opacity-50" />
-                 <p className="text-sm font-semibold uppercase tracking-widest">GIS Integration Active</p>
-               </div>
-             </div>
-             {/* Heatmap overlay dots */}
-             <div className="absolute top-[30%] left-[40%] w-32 h-32 bg-indiaGreen/30 rounded-full blur-2xl animate-pulse" />
-             <div className="absolute top-[50%] left-[60%] w-40 h-40 bg-saffron/30 rounded-full blur-2xl animate-pulse" />
-             <div className="absolute top-[20%] left-[70%] w-24 h-24 bg-signalRed/30 rounded-full blur-2xl animate-pulse" />
+          <div className="flex-1 bg-slate-100 relative min-h-[400px] overflow-hidden">
+             {/* Realistic GIS Integration via OpenStreetMap */}
+             <iframe 
+               width="100%" 
+               height="100%" 
+               frameBorder="0" 
+               scrolling="no" 
+               marginHeight={0} 
+               marginWidth={0} 
+               src="https://www.openstreetmap.org/export/embed.html?bbox=73.5000%2C21.0000%2C82.5000%2C27.0000&amp;layer=mapnik" 
+               style={{ border: 0, filter: 'grayscale(0.6) contrast(1.1) sepia(0.2)' }}
+               className="absolute inset-0 pointer-events-none"
+             />
+             <div className="absolute inset-0 bg-ink-navy/10 pointer-events-none" />
+
+             {/* Heatmap overlay clusters */}
+             {/* Indore / Ujjain Region - High Compliance */}
+             <div className="absolute top-[45%] left-[30%] w-48 h-48 bg-indiaGreen/40 rounded-full blur-2xl animate-pulse pointer-events-none" />
+             <div className="absolute top-[48%] left-[32%] w-24 h-24 bg-indiaGreen/60 rounded-full blur-xl pointer-events-none" />
+
+             {/* Bhopal Region - Mixed */}
+             <div className="absolute top-[40%] left-[45%] w-40 h-40 bg-saffron/40 rounded-full blur-2xl animate-pulse pointer-events-none" />
+             <div className="absolute top-[42%] left-[47%] w-16 h-16 bg-saffron/60 rounded-full blur-xl pointer-events-none" />
+
+             {/* Jabalpur Region - High Risk / Fraudulent */}
+             <div className="absolute top-[35%] left-[65%] w-32 h-32 bg-signalRed/40 rounded-full blur-2xl animate-pulse pointer-events-none" />
+             <div className="absolute top-[37%] left-[67%] w-12 h-12 bg-signalRed/70 rounded-full blur-lg pointer-events-none" />
           </div>
         </div>
 
