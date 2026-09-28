@@ -19,7 +19,7 @@ export default function Sidebar({ role }: { role: string }) {
   ];
 
   return (
-    <aside className="w-64 fixed inset-y-0 left-0 bg-white border-r hairline-border flex flex-col z-20 top-[38px] shadow-soft">
+    <aside className="w-64 fixed inset-y-0 left-0 bg-white border-r hairline-border flex flex-col z-20 top-[34px] shadow-soft">
       <div className="p-6 border-b hairline-border flex flex-col items-center mt-4">
         <div className="w-14 h-14 bg-ink-navy rounded-lg flex items-center justify-center text-white mb-3">
           <ShieldCheck className="w-7 h-7" />

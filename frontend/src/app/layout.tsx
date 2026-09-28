@@ -34,9 +34,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="antialiased">
-      <body className={`${inter.variable} ${noto.variable} ${sourceSerif.variable} font-sans`}>
-        {/* Government of India Strip */}
-        <div className="w-full bg-ink-navy text-white text-xs py-1.5 px-4 md:px-8 flex justify-between items-center border-b-[3px] border-saffron">
+      <body className={`${inter.variable} ${noto.variable} ${sourceSerif.variable} font-sans pt-[34px]`}>
+        {/* Government of India Strip - FIXED TO TOP */}
+        <div className="w-full bg-ink-navy text-white text-xs py-1.5 px-4 md:px-8 flex justify-between items-center border-b-[3px] border-saffron fixed top-0 left-0 z-[100] h-[34px]">
           <div className="flex items-center gap-4">
             <span className="font-semibold tracking-wide">GOVERNMENT OF INDIA</span>
             <span className="hidden sm:inline opacity-70">|</span>
@@ -58,7 +58,7 @@ export default function RootLayout({
           </div>
         </div>
 
-        <main className="min-h-[calc(100vh-100px)]">
+        <main className="min-h-[calc(100vh-34px)]">
           {children}
         </main>
         

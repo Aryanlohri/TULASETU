@@ -6,7 +6,7 @@ export default function Topbar() {
   const { user, logout, loading } = useAuth();
 
   return (
-    <header className="h-16 bg-white border-b hairline-border fixed top-[38px] right-0 left-64 z-10 flex items-center justify-between px-6 shadow-soft">
+    <header className="h-16 bg-white border-b hairline-border fixed top-[34px] right-0 left-64 z-10 flex items-center justify-between px-6 shadow-soft">
       <div className="flex items-center gap-4 w-96">
         <div className="relative w-full">
           <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />

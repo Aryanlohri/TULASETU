@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { Search, QrCode, ArrowRight, ShieldCheck, Database, FileWarning, Scale } from 'lucide-react';
 import DigitalCertificate from '@/components/verification/DigitalCertificate';
 
+import Link from 'next/link';
+
 export default function PublicVerify() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearching, setIsSearching] = useState(false);
@@ -34,6 +36,19 @@ export default function PublicVerify() {
 
   return (
     <div className="flex flex-col items-center w-full pb-20">
+      {/* Public Header */}
+      <header className="w-full bg-white border-b hairline-border h-16 flex items-center justify-between px-4 md:px-8">
+        <div className="flex items-center gap-3">
+          <div className="w-8 h-8 bg-ink-navy/5 border border-ink-navy/10 rounded-full flex items-center justify-center">
+             <span className="text-xs font-serif font-bold text-ink-navy">LM</span>
+          </div>
+          <span className="font-serif font-bold text-ink-navy text-xl tracking-tight">TulaSetu</span>
+        </div>
+        <Link href="/login" className="bg-ink-navy hover:bg-ink-navy/90 text-white px-5 py-2 rounded-md font-semibold text-sm transition-colors">
+          Portal Login
+        </Link>
+      </header>
+
       {/* Hero Section */}
       <section className="w-full max-w-4xl mx-auto px-4 pt-16 md:pt-24 pb-12 flex flex-col items-center text-center">
         <h1 className="text-4xl md:text-5xl font-serif text-ink-navy font-bold tracking-tight mb-4">

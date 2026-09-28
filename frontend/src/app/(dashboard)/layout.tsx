@@ -28,7 +28,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   return (
     <div className="min-h-screen bg-paper flex">
       <Sidebar role={user.role} />
-      <div className="flex-1 ml-64 flex flex-col relative pt-[38px]">
+      <div className="flex-1 ml-64 flex flex-col relative pt-[34px]">
         <Topbar />
         <main className="flex-1 p-8 mt-16 overflow-y-auto">
           {children}
