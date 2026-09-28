@@ -3,12 +3,20 @@ import { useAuth } from '@/hooks/useAuth';
 import Sidebar from '@/components/layout/Sidebar';
 import Topbar from '@/components/layout/Topbar';
 import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
-  const { user, loading } = useAuth();
-  const router = useRouter();
-
+  // const { user, loading } = useAuth();
+  // const router = useRouter();
+  
+  // Dynamic mock for UI review phase
+  const pathname = usePathname();
+  const mockRole = pathname?.includes('/admin') ? 'ADMIN' : pathname?.includes('/officer') ? 'LMO' : 'TRADER';
+  const user = { name: "Demo User", role: mockRole };
+  const loading = false;
+  
+  /* 
+  // Bypassed Auth for UI Review Phase
   useEffect(() => {
     if (!loading && !user) {
       router.push('/login');
@@ -24,6 +32,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   }
 
   if (!user) return null;
+  */
 
   return (
     <div className="min-h-screen bg-paper flex">
