@@ -83,19 +83,15 @@ export default function AdminDashboard() {
             </select>
           </div>
           <div className="flex-1 bg-slate-100 relative min-h-[400px] overflow-hidden">
-             {/* Realistic GIS Integration via OpenStreetMap */}
-             <iframe 
-               width="100%" 
-               height="100%" 
-               frameBorder="0" 
-               scrolling="no" 
-               marginHeight={0} 
-               marginWidth={0} 
-               src="https://www.openstreetmap.org/export/embed.html?bbox=73.5000%2C21.0000%2C82.5000%2C27.0000&amp;layer=mapnik" 
-               style={{ border: 0, filter: 'grayscale(0.6) contrast(1.1) sepia(0.2)' }}
-               className="absolute inset-0 pointer-events-none"
+             {/* Realistic GIS Integration - Static Map Image to prevent iframe UI boxes */}
+             <div 
+               className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40 mix-blend-multiply"
+               style={{ 
+                 backgroundImage: "url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Madhya_Pradesh_location_map.svg/1200px-Madhya_Pradesh_location_map.svg.png')",
+                 filter: 'grayscale(1) contrast(1.2)'
+               }}
              />
-             <div className="absolute inset-0 bg-ink-navy/10 pointer-events-none" />
+             <div className="absolute inset-0 bg-ink-navy/5 pointer-events-none" />
 
              {/* Heatmap overlay clusters */}
              {/* Indore / Ujjain Region - High Compliance */}
