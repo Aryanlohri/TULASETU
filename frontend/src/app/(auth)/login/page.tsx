@@ -129,6 +129,9 @@ export default function LoginPage() {
               ) : (
                 <>Secure Login <ArrowRight className="w-4 h-4" /></>
               )}
+            </button>
+          </form>
+
           {!isOfficerLogin && (
             <p className="mt-8 text-center text-sm text-slate-500">
               Not registered on the portal?{' '}
