@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Search, QrCode, ArrowRight, ShieldCheck, Database, FileWarning, Scale } from 'lucide-react';
 import DigitalCertificate from '@/components/verification/DigitalCertificate';
-import TulaLoader from '@/components/ui/TulaLoader';
+
 import Link from 'next/link';
 
 export default function PublicVerify() {
@@ -39,7 +39,10 @@ export default function PublicVerify() {
       {/* Public Header */}
       <header className="w-full bg-white border-b hairline-border h-16 flex items-center justify-between px-4 md:px-8">
         <div className="flex items-center gap-3">
-          <img src="/brand/logo-horizontal.svg" alt="TulaSetu Logo" className="h-10" />
+          <div className="w-8 h-8 bg-ink-navy/5 border border-ink-navy/10 rounded-full flex items-center justify-center">
+             <span className="text-xs font-serif font-bold text-ink-navy">LM</span>
+          </div>
+          <span className="font-serif font-bold text-ink-navy text-xl tracking-tight">TulaSetu</span>
         </div>
         <Link href="/login" className="bg-ink-navy hover:bg-ink-navy/90 text-white px-5 py-2 rounded-md font-semibold text-sm transition-colors">
           Portal Login
@@ -65,14 +68,12 @@ export default function PublicVerify() {
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full h-14 pl-16 pr-32 text-lg text-ink-navy placeholder:text-slate-400 focus:outline-none rounded-md bg-transparent font-mono"
             required
-            disabled={isSearching}
           />
           <div className="absolute right-2 flex items-center gap-2">
             <button 
               type="button" 
               className="p-3 text-slate-500 hover:text-ink-navy hover:bg-slate-100 rounded-md transition-colors"
               title="Scan QR Code"
-              disabled={isSearching}
             >
               <QrCode className="w-6 h-6" />
             </button>
@@ -81,25 +82,22 @@ export default function PublicVerify() {
               disabled={isSearching}
               className="bg-ink-navy hover:bg-ink-navy/90 text-white px-6 h-12 rounded-md font-semibold transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex items-center justify-center min-w-[120px]"
             >
-              Verify
+              {isSearching ? (
+                <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+              ) : (
+                'Verify'
+              )}
             </button>
           </div>
         </form>
       </section>
 
-      {/* Inline Verification Result / Loader */}
-      <section className="w-full px-4 mb-20 min-h-[400px] flex justify-center">
-        {isSearching && (
-          <div className="animate-in fade-in duration-300">
-            <TulaLoader state="verifying" size="full" caption="Querying Hyperledger Ledger..." />
-          </div>
-        )}
-        {!isSearching && result && (
-          <div className="animate-in fade-in slide-in-from-bottom-8 duration-500 w-full">
-            <DigitalCertificate data={result} />
-          </div>
-        )}
-      </section>
+      {/* Inline Verification Result */}
+      {result && (
+        <section className="w-full px-4 mb-20 animate-in fade-in slide-in-from-bottom-8 duration-500">
+          <DigitalCertificate data={result} />
+        </section>
+      )}
 
       {/* Trust & Stats Section */}
       <section className="w-full max-w-6xl mx-auto px-4 py-16 border-t hairline-border">
