@@ -27,15 +27,13 @@ export default function DigitalCertificate({ data }: { data: CertificateData }) 
         <div className="absolute inset-3 border border-ink-navy/10" />
         <div className="absolute inset-[14px] border-[0.5px] border-ink-navy/20" />
 
-        {/* Watermark (Ashoka Chakra or similar symbol placeholder) */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none">
-          <div className="w-64 h-64 rounded-full border-[10px] border-ink-navy border-dashed" />
+        {/* Watermark */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+          <img src="/brand/mark-only.svg" alt="" className="w-[400px] opacity-[0.03]" />
         </div>
 
         <div className="relative z-10 flex flex-col items-center text-center">
-          <div className="w-16 h-16 bg-ink-navy/5 rounded-full mb-4 flex items-center justify-center border border-ink-navy/10">
-            <span className="text-2xl font-serif text-ink-navy">LM</span>
-          </div>
+          <img src="/brand/mark-only.svg" alt="TulaSetu Mark" className="h-16 mb-4" />
           
           <h2 className="font-serif text-3xl md:text-4xl text-ink-navy font-bold tracking-tight mb-2">
             Certificate of Verification

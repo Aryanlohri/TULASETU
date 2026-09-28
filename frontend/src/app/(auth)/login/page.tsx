@@ -50,6 +50,7 @@ export default function LoginPage() {
         <div className="w-full max-w-md bg-white p-8 rounded-lg hairline-border shadow-soft">
           
           <div className="mb-8">
+            <img src="/brand/logo-horizontal.svg" alt="TulaSetu Logo" className="h-10 mb-6" />
             <h1 className="text-2xl font-serif font-bold text-ink-navy mb-2">Access Portal</h1>
             <p className="text-sm text-slate-500">Sign in to manage your Legal Metrology compliances or conduct inspections.</p>
           </div>
@@ -141,8 +142,9 @@ export default function LoginPage() {
 
       {/* Right Side: Visual / Brand */}
       <div className="hidden lg:flex w-1/2 bg-ink-navy relative overflow-hidden items-center justify-center p-12">
-        {/* Subtle grid pattern over navy */}
+        {/* Subtle grid pattern and watermark over navy */}
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+        <img src="/brand/mark-only.svg" alt="" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] opacity-[0.03] invert" />
         
         <div className="relative z-10 max-w-md text-white">
           <h2 className="text-3xl font-serif font-bold mb-4 leading-tight">Trust, made visible.</h2>

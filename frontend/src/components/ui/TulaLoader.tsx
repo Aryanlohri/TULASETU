@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, useAnimation, Variants } from 'framer-motion';
 
 export type TulaLoaderState = 'loading' | 'verifying' | 'success' | 'error';
-export type TulaLoaderSize = 'button' | 'overlay' | 'full';
+export type TulaLoaderSize = 'button' | 'overlay' | 'full' | 'seal';
 
 interface TulaLoaderProps {
   state?: TulaLoaderState;
@@ -86,7 +86,7 @@ export default function TulaLoader({
   // Dynamic Captions
   const [captionText, setCaptionText] = useState(caption || 'Weighing the details');
   useEffect(() => {
-    if (caption) {
+    if (caption !== undefined) {
       setCaptionText(caption);
       return;
     }
@@ -102,7 +102,7 @@ export default function TulaLoader({
     return () => clearInterval(t);
   }, [state, caption]);
 
-  const pxSizes = { button: 16, overlay: 48, full: 96 };
+  const pxSizes = { button: 16, overlay: 48, full: 96, seal: 96 };
   const hidePans = size === 'button';
   const strokeWidth = size === 'button' ? 8 : 4;
   const markColor = '#0B2A4A';
@@ -164,7 +164,7 @@ export default function TulaLoader({
       </motion.svg>
 
       {/* Progress Hash Line for 'verifying' */}
-      {state === 'verifying' && size !== 'button' && (
+      {state === 'verifying' && (size === 'full' || size === 'overlay') && (
         <div className="w-32 mt-6 h-1 bg-slate-200 overflow-hidden relative">
           <motion.div 
             className="absolute inset-y-0 left-0 bg-ink-navy" 
