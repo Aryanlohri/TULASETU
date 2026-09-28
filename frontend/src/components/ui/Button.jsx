@@ -2,17 +2,17 @@ import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
 export default function Button({ children, variant = 'primary', className, loading, ...props }) {
-  const base = "inline-flex items-center justify-center rounded-xl font-medium transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:pointer-events-none";
+  const base = "inline-flex items-center justify-center rounded-md font-semibold transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:pointer-events-none";
   const variants = {
-    primary: "bg-gradient-to-r from-indigo-600 to-violet-600 text-white shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40",
-    secondary: "bg-white/10 text-white hover:bg-white/20",
-    outline: "border border-white/20 text-white hover:bg-white/5",
-    danger: "bg-rose-500 text-white hover:bg-rose-600 shadow-lg shadow-rose-500/20",
-    ghost: "text-slate-300 hover:text-white hover:bg-white/5",
+    primary: "bg-primary-900 text-white hover:bg-primary-800 shadow-sm",
+    secondary: "bg-saffron-500 text-white hover:bg-saffron-600 shadow-sm",
+    outline: "border-2 border-primary-900 text-primary-900 hover:bg-primary-50",
+    danger: "bg-red-600 text-white hover:bg-red-700 shadow-sm",
+    ghost: "text-gray-600 hover:text-primary-900 hover:bg-gray-100",
   };
   const sizes = {
     sm: "px-3 py-1.5 text-sm",
-    md: "px-4 py-2",
+    md: "px-5 py-2.5",
     lg: "px-6 py-3 text-lg",
   };
 

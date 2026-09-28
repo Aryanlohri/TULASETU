@@ -2,15 +2,15 @@ import { twMerge } from 'tailwind-merge';
 
 export default function Badge({ children, type = 'default', className }) {
   const types = {
-    VERIFIED: 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20',
-    PENDING: 'bg-amber-500/10 text-amber-400 border border-amber-500/20',
-    REJECTED: 'bg-rose-500/10 text-rose-400 border border-rose-500/20',
-    WEIGHING: 'bg-indigo-500/10 text-indigo-400 border border-indigo-500/20',
-    default: 'bg-slate-500/10 text-slate-300 border border-slate-500/20'
+    VERIFIED: 'bg-green-100 text-green-800 border border-green-200',
+    PENDING: 'bg-yellow-100 text-yellow-800 border border-yellow-200',
+    REJECTED: 'bg-red-100 text-red-800 border border-red-200',
+    WEIGHING: 'bg-primary-100 text-primary-800 border border-primary-200',
+    default: 'bg-gray-100 text-gray-800 border border-gray-200'
   };
   
   return (
-    <span className={twMerge("px-2.5 py-0.5 rounded-full text-xs font-semibold", types[type] || types.default, className)}>
+    <span className={twMerge("px-2.5 py-0.5 rounded-full text-xs font-bold", types[type] || types.default, className)}>
       {children}
     </span>
   );

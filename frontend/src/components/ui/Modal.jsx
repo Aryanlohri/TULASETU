@@ -19,9 +19,9 @@ export default function Modal({ isOpen, onClose, title, children }) {
             className="relative w-full max-w-lg z-10"
           >
             <Card className="p-0 overflow-hidden shadow-2xl">
-              <div className="flex justify-between items-center p-4 border-b border-white/10 bg-white/5">
-                <h3 className="font-heading font-bold text-lg">{title}</h3>
-                <button onClick={onClose} className="p-1 rounded-lg hover:bg-white/10 text-slate-400 transition"><X className="w-5 h-5"/></button>
+              <div className="flex justify-between items-center p-4 border-b border-gray-200 bg-gray-50">
+                <h3 className="font-heading font-bold text-lg text-primary-900">{title}</h3>
+                <button onClick={onClose} className="p-1 rounded-lg hover:bg-gray-200 text-gray-500 transition"><X className="w-5 h-5"/></button>
               </div>
               <div className="p-6">
                 {children}
