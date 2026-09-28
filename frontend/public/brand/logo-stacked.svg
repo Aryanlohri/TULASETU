@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 280" width="100%" height="100%">
+  <title>TulaSetu Logo (Stacked)</title>
+  
+  <!-- Mark (Centered) -->
+  <g transform="translate(40, 20)">
+    <!-- Pillar & Base -->
+    <path d="M 80 42 L 80 120 M 60 120 L 100 120" stroke="#0B2A4A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    
+    <!-- Beam (Bridge Arch) -->
+    <path d="M 30 60 Q 80 24 130 60" stroke="#0B2A4A" stroke-width="4" stroke-linecap="round" fill="none" />
+    
+    <!-- Pan Strings -->
+    <path d="M 30 60 L 8 100 M 30 60 L 52 100 M 130 60 L 108 100 M 130 60 L 152 100" stroke="#0B2A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    
+    <!-- Pans -->
+    <path d="M 8 100 L 52 100 M 108 100 L 152 100" stroke="#C85F00" stroke-width="4" stroke-linecap="round" fill="none" />
+    
+    <!-- Pivot -->
+    <circle cx="80" cy="42" r="5" fill="#C85F00" />
+  </g>
+
+  <!-- Wordmark -->
+  <g transform="translate(120, 215)" text-anchor="middle">
+    <text font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="48" letter-spacing="-0.02em">
+      <tspan fill="#0B2A4A">Tula</tspan><tspan fill="#C85F00">Setu</tspan>
+    </text>
+    <text y="30" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="13" fill="#5B6B7B" letter-spacing="0.3em">
+      LEGAL METROLOGY
+    </text>
+  </g>
+</svg>

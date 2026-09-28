@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <title>TulaSetu Loading</title>
+  
+  <style>
+    @keyframes swingBeam {
+      0%, 100% { transform: rotate(-8deg); }
+      20% { transform: rotate(6deg); }
+      40% { transform: rotate(-3deg); }
+      60% { transform: rotate(1.5deg); }
+      80% { transform: rotate(0deg); }
+    }
+    @keyframes swingPan {
+      0%, 100% { transform: rotate(8deg); }
+      20% { transform: rotate(-6deg); }
+      40% { transform: rotate(3deg); }
+      60% { transform: rotate(-1.5deg); }
+      80% { transform: rotate(0deg); }
+    }
+    @keyframes pivotFlash {
+      0%, 75%, 100% { fill: #C85F00; }
+      85% { fill: #138808; }
+    }
+    .beam {
+      transform-origin: 80px 42px;
+      animation: swingBeam 2.4s ease-in-out infinite;
+    }
+    .pan-left {
+      transform-origin: 30px 60px;
+      animation: swingPan 2.4s ease-in-out infinite;
+    }
+    .pan-right {
+      transform-origin: 130px 60px;
+      animation: swingPan 2.4s ease-in-out infinite;
+    }
+    .pivot {
+      animation: pivotFlash 2.4s ease-in-out infinite;
+    }
+    
+    @media (prefers-reduced-motion: reduce) {
+      .beam, .pan-left, .pan-right { animation: none; transform: rotate(0); }
+      .pivot { animation: none; fill: #C85F00; opacity: 0.8; }
+    }
+  </style>
+
+  <!-- Pillar & Base -->
+  <path d="M 80 42 L 80 120 M 60 120 L 100 120" stroke="#0B2A4A" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  
+  <g class="beam">
+    <!-- Beam -->
+    <path d="M 30 60 Q 80 24 130 60" stroke="#0B2A4A" stroke-width="4" stroke-linecap="round" fill="none" />
+    
+    <!-- Left Pan -->
+    <g class="pan-left">
+      <path d="M 30 60 L 8 100 M 30 60 L 52 100" stroke="#0B2A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <path d="M 8 100 L 52 100" stroke="#C85F00" stroke-width="4" stroke-linecap="round" fill="none" />
+    </g>
+
+    <!-- Right Pan -->
+    <g class="pan-right">
+      <path d="M 130 60 L 108 100 M 130 60 L 152 100" stroke="#0B2A4A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      <path d="M 108 100 L 152 100" stroke="#C85F00" stroke-width="4" stroke-linecap="round" fill="none" />
+    </g>
+  </g>
+
+  <!-- Pivot -->
+  <circle class="pivot" cx="80" cy="42" r="5" fill="#C85F00" />
+</svg>
