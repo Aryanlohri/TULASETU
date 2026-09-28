@@ -7,16 +7,27 @@ import { motion } from 'framer-motion';
 export default function Sidebar({ role }: { role: string }) {
   const pathname = usePathname();
   
-  const links = role === 'TRADER' ? [
-    { href: '/trader', label: 'Dashboard', icon: Home },
-    { href: '/trader/instruments', label: 'Instruments', icon: Box },
-    { href: '/trader/applications', label: 'Applications', icon: FileText },
-    { href: '/trader/certificates', label: 'Certificates', icon: ShieldCheck },
-  ] : [
-    { href: '/officer', label: 'Dashboard', icon: Home },
-    { href: '/officer/inspections', label: 'Inspections', icon: CheckSquare },
-    { href: '/officer/certificates', label: 'Issue Certs', icon: ShieldCheck },
-  ];
+  let links = [];
+  if (role === 'TRADER') {
+    links = [
+      { href: '/trader', label: 'Dashboard', icon: Home },
+      { href: '/trader/instruments', label: 'Instruments', icon: Box },
+      { href: '/trader/applications', label: 'Applications', icon: FileText },
+      { href: '/trader/certificates', label: 'Certificates', icon: ShieldCheck },
+    ];
+  } else if (role === 'ADMIN') {
+    links = [
+      { href: '/admin', label: 'Command Center', icon: Home },
+      { href: '/admin/heatmap', label: 'GIS Heatmap', icon: Box },
+      { href: '/admin/reports', label: 'Ledger Reports', icon: FileText },
+    ];
+  } else {
+    // Default to LMO / Officer
+    links = [
+      { href: '/officer', label: 'Inspections', icon: CheckSquare },
+      { href: '/officer/inspections/new', label: 'Field Capture', icon: ShieldCheck },
+    ];
+  }
 
   return (
     <aside className="w-64 fixed inset-y-0 left-0 bg-white border-r hairline-border flex flex-col z-20 top-[34px] shadow-soft">
