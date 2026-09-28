@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { auth as authApi } from '../lib/api';
-import { setTokens, clearTokens, getToken, getUserRole } from '../lib/auth';
+import { setTokens, clearTokens, getToken } from '../lib/auth';
 import toast from 'react-hot-toast';
 
 export function useAuth(requireAuth = false) {
@@ -15,7 +15,7 @@ export function useAuth(requireAuth = false) {
       if (getToken()) {
         try {
           const res = await authApi.getProfile();
-          setUser({ ...res.data, role: getUserRole() });
+          setUser(res.data);
         } catch (error) {
           clearTokens();
           if (requireAuth) router.push('/login');
@@ -33,8 +33,8 @@ export function useAuth(requireAuth = false) {
       const res = await authApi.login({ email, password });
       setTokens(res.data.access, res.data.refresh);
       const profileRes = await authApi.getProfile();
-      const role = getUserRole();
-      setUser({ ...profileRes.data, role });
+      const role = profileRes.data.role;
+      setUser(profileRes.data);
       router.push(`/${role.toLowerCase()}`);
       return true;
     } catch (error) {
