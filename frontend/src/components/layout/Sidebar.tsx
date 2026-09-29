@@ -1,25 +1,27 @@
 'use client';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import { Home, FileText, CheckSquare, ShieldCheck, Box } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function Sidebar({ role }: { role: string }) {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const currentTab = searchParams.get('tab');
   
   let links = [];
   if (role === 'TRADER') {
     links = [
       { href: '/trader', label: 'Dashboard', icon: Home },
-      { href: '/trader/instruments', label: 'Instruments', icon: Box },
-      { href: '/trader/applications', label: 'Applications', icon: FileText },
-      { href: '/trader/certificates', label: 'Certificates', icon: ShieldCheck },
+      { href: '/trader?tab=instruments', label: 'Instruments', icon: Box },
+      { href: '/trader?tab=applications', label: 'Applications', icon: FileText },
+      { href: '/trader?tab=certificates', label: 'Certificates', icon: ShieldCheck },
     ];
   } else if (role === 'ADMIN') {
     links = [
       { href: '/admin', label: 'Command Center', icon: Home },
-      { href: '/admin/heatmap', label: 'GIS Heatmap', icon: Box },
-      { href: '/admin/reports', label: 'Ledger Reports', icon: FileText },
+      { href: '/admin?tab=heatmap', label: 'GIS Heatmap', icon: Box },
+      { href: '/admin?tab=reports', label: 'Ledger Reports', icon: FileText },
     ];
   } else {
     // Default to LMO / Officer
@@ -38,7 +40,9 @@ export default function Sidebar({ role }: { role: string }) {
       
       <nav className="flex-1 px-3 py-6 space-y-1 relative">
         {links.map((link) => {
-          const active = pathname === link.href;
+          const isBaseRoute = link.href === pathname;
+          const linkTab = link.href.split('tab=')[1];
+          const active = linkTab ? currentTab === linkTab : (!currentTab && isBaseRoute);
           const Icon = link.icon;
           return (
             <Link key={link.href} href={link.href} className="relative block group">

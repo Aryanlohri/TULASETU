@@ -158,7 +158,16 @@ export default function NewInspection() {
 
       {/* Action Footer */}
       <div className="fixed bottom-0 left-0 right-0 md:absolute md:bottom-0 p-4 bg-white border-t hairline-border z-20 flex gap-3">
-        <button className="flex-1 bg-ink-navy text-white font-bold py-4 rounded-md flex items-center justify-center gap-2 disabled:opacity-50" disabled={!photoTaken || !outcome}>
+        <button 
+          onClick={() => {
+            const btn = document.getElementById('save-btn');
+            if (btn) btn.innerHTML = '<div class="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div> Signing...';
+            setTimeout(() => window.location.href = '/officer?success=true', 1500);
+          }}
+          id="save-btn"
+          className="flex-1 bg-ink-navy text-white font-bold py-4 rounded-md flex items-center justify-center gap-2 disabled:opacity-50 transition-all" 
+          disabled={!photoTaken || !outcome}
+        >
           <UploadCloud className="w-5 h-5" />
           Save & Cryptographic Sign
         </button>

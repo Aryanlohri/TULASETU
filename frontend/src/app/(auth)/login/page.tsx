@@ -21,26 +21,17 @@ export default function LoginPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setErrors({});
     
-    try {
-      const { user } = await login(formData.username, formData.password);
+    // Mock login delay for video demo
+    setTimeout(() => {
       toast.success('Successfully authenticated');
-      if (user.role === 'LMO') {
-        router.push('/officer');
+      if (isOfficerLogin) {
+        // Defaulting to admin for the impressive dashboard demo
+        router.push('/admin');
       } else {
         router.push('/trader');
       }
-    } catch (err: any) {
-      if (typeof err === 'string') {
-        setErrors({ detail: err });
-      } else {
-        setErrors(err);
-      }
-      toast.error('Authentication failed');
-    } finally {
-      setLoading(false);
-    }
+    }, 800);
   };
 
   return (

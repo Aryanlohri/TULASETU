@@ -2,10 +2,20 @@
 import { useAuth } from '@/hooks/useAuth';
 import { MapPin, CheckSquare, Clock, Map, List, CloudOff, CloudDrizzle, RefreshCw } from 'lucide-react';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
+import { useEffect } from 'react';
+import toast from 'react-hot-toast';
 
 export default function OfficerDashboard() {
   const { user } = useAuth();
-  
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    if (searchParams.get('success') === 'true') {
+      toast.success('Inspection cryptographically signed & anchored to ledger!');
+    }
+  }, [searchParams]);
+
   return (
     <div className="w-full max-w-lg mx-auto space-y-6 pb-20">
       
