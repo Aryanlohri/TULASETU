@@ -2,7 +2,7 @@
 import { useAuth } from '@/hooks/useAuth';
 import Sidebar from '@/components/layout/Sidebar';
 import Topbar from '@/components/layout/Topbar';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
@@ -36,11 +36,15 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
 
   return (
     <div className="min-h-screen bg-paper flex">
-      <Sidebar role={user.role} />
+      <Suspense fallback={<div className="w-64 fixed inset-y-0 left-0 bg-white border-r hairline-border" />}>
+        <Sidebar role={user.role} />
+      </Suspense>
       <div className="flex-1 ml-64 flex flex-col relative pt-[34px]">
         <Topbar />
         <main className="flex-1 p-8 mt-16 overflow-y-auto">
-          {children}
+          <Suspense fallback={<div className="p-8 text-slate-500 font-semibold animate-pulse">Loading dashboard...</div>}>
+            {children}
+          </Suspense>
         </main>
       </div>
     </div>
